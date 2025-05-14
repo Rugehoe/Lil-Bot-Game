@@ -7,7 +7,7 @@ public class CameraControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.position = new Vector3(player.transform.position.x,player.transform.position.y, -10);
+        this.transform.position = new Vector3(player.transform.position.x,player.transform.position.y-4.5f, -6);
 
     }
 }
