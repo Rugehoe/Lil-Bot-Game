@@ -19,12 +19,17 @@ public class NewPlayerscript : MonoBehaviour
     [SerializeField]
     private Tile woodTile;
 
+    [SerializeField]
+    GameObject loreTab;
 
     [SerializeField]
     private bool woodFront = false;
+    private bool signFront = false;
 
     [SerializeField]
     private bool heldWood = false;
+
+    
 
     public PlayerInput PI;
 
@@ -40,7 +45,20 @@ public class NewPlayerscript : MonoBehaviour
     void OnInteract()
     {
         if (woodFront) StartCoroutine(PicknDrop());
+
+        if (signFront) Opensign();        
+
     }
+
+    void Opensign()
+    {
+        loreTab.SetActive(true);
+    }
+
+
+
+
+
 
     IEnumerator PicknDrop()
     {
@@ -87,6 +105,14 @@ public class NewPlayerscript : MonoBehaviour
         {
             woodFront = true;
         }
+        if (other.gameObject.CompareTag("Sign"))
+        {
+            signFront = true;
+        }
+
+
+
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -94,6 +120,10 @@ public class NewPlayerscript : MonoBehaviour
         if (other.gameObject.CompareTag("Wood"))
         {
             woodFront = false;
+        }
+        if (other.gameObject.CompareTag("Sign"))
+        {
+            signFront = false;
         }
     }
 
