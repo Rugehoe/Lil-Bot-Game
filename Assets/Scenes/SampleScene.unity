@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &65318404
 RectTransform:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 3.24, y: -6, z: -10}
+  m_LocalPosition: {x: 3, y: -6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4100,7 +4100,7 @@ MonoBehaviour:
   collisionTileMap: {fileID: 68310449}
   WoodMap: {fileID: 1352493980}
   woodTile: {fileID: 11400000, guid: 66a61b99080427686884fb08bee76e07, type: 2}
-  loreTab: {fileID: 0}
+  loreTab: {fileID: 65318403}
   woodFront: 0
   heldWood: 0
   PI: {fileID: 2063131588}
