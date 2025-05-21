@@ -905,6 +905,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2063131585}
+  speed: 3
+  offset:
+  - 0
+  - 0
+  - 0
 --- !u!1 &342493063
 GameObject:
   m_ObjectHideFlags: 0
