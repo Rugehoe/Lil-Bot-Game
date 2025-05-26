@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
-public class NewPlayerscript : MonoBehaviour
+public class Playerscript : MonoBehaviour
 {
 
     [SerializeField]
@@ -67,14 +67,12 @@ public class NewPlayerscript : MonoBehaviour
         {
             wood.transform.parent = this.transform;
             heldWood = true;
-            Debug.Log("PickUp");
             SetNRemoveTiles(false);
         }
         else if (heldWood)
         {
             wood.transform.parent = null;
             heldWood = false;
-            Debug.Log("LayDown");
             SetNRemoveTiles(true);
         }
         yield return null;

@@ -5,9 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: b2b041042b9041d499e9e1bf9003bfda
+  - enabled: 1
+    path: Assets/Scenes/ForestSpot1.unity
+    guid: 2541eba7ea5a7864396845d1b3067b20
+  - enabled: 1
+    path: Assets/Scenes/ForestSpot2.unity
+    guid: ae762e6b055937242ba31697c4b6dfa7
+  - enabled: 1
+    path: Assets/Scenes/ForestSpot3.unity
+    guid: af26c1cbea42e5a4c808033eee640ec9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
