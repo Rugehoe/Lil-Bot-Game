@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestSpot3.unity
     guid: af26c1cbea42e5a4c808033eee640ec9
+  - enabled: 1
+    path: Assets/Scenes/CitySpot1.unity
+    guid: 5af74ecbaf4dcad4e835145c2c92fb86
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
