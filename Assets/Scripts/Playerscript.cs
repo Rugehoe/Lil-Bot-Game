@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
-public class Playerscript : MonoBehaviour
+public class NewPlayerscript : MonoBehaviour
 {
 
     [SerializeField]
@@ -22,9 +22,10 @@ public class Playerscript : MonoBehaviour
     [SerializeField]
     GameObject loreTab;
 
-    [SerializeField]
     private bool woodFront = false;
     private bool signFront = false;
+    private bool boxFront = false;
+    private GameObject box;
 
     [SerializeField]
     private bool heldWood = false;
@@ -46,7 +47,9 @@ public class Playerscript : MonoBehaviour
     {
         if (woodFront) StartCoroutine(PicknDrop());
 
-        if (signFront) Opensign();        
+        if (signFront) Opensign();
+
+        if (boxFront) DestoryBox();
 
     }
 
@@ -55,11 +58,7 @@ public class Playerscript : MonoBehaviour
         loreTab.SetActive(true);
     }
 
-
-
-
-
-
+    #region Woodplack
     IEnumerator PicknDrop()
     {
         GameObject wood = GameObject.Find("Wood");
@@ -67,18 +66,18 @@ public class Playerscript : MonoBehaviour
         {
             wood.transform.parent = this.transform;
             heldWood = true;
-            SetNRemoveTiles(false);
+            WoodSNRTiles(false);
         }
         else if (heldWood)
         {
             wood.transform.parent = null;
             heldWood = false;
-            SetNRemoveTiles(true);
+            WoodSNRTiles(true);
         }
         yield return null;
     }
 
-    public void SetNRemoveTiles(bool set)
+    public void WoodSNRTiles(bool set)
     {
         if (set)
         {
@@ -86,13 +85,22 @@ public class Playerscript : MonoBehaviour
             WoodMap.SetTile(WoodMap.WorldToCell(GameObject.Find("Wood Point2").transform.position), woodTile);
             WoodMap.SetTile(WoodMap.WorldToCell(GameObject.Find("Wood Point3").transform.position), woodTile);
         }
-        else 
+        else
         {
             WoodMap.SetTile(WoodMap.WorldToCell(GameObject.Find("Wood Point1").transform.position), null);
             WoodMap.SetTile(WoodMap.WorldToCell(GameObject.Find("Wood Point2").transform.position), null);
             WoodMap.SetTile(WoodMap.WorldToCell(GameObject.Find("Wood Point3").transform.position), null);
         }
     }
+    #endregion
+
+    public void DestoryBox()
+    {
+        collisionTileMap.SetTile(collisionTileMap.WorldToCell(GameObject.Find("Boxpoint").transform.position), null);
+        Destroy(box);
+    }
+
+
 
 
 
@@ -107,10 +115,11 @@ public class Playerscript : MonoBehaviour
         {
             signFront = true;
         }
-
-
-
-
+        if (other.gameObject.CompareTag("Box"))
+        {
+            boxFront = true;
+            box = other.gameObject;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -122,6 +131,11 @@ public class Playerscript : MonoBehaviour
         if (other.gameObject.CompareTag("Sign"))
         {
             signFront = false;
+        }
+        if (other.gameObject.CompareTag("Box"))
+        {
+            boxFront = false;
+            box = null;
         }
     }
 
