@@ -142,7 +142,7 @@ public class NewPlayerscript : MonoBehaviour
 
 
     #region Movement
-    private void FixedUpdate()
+    private void Update()
     {
         Move(movementAction.ReadValue<Vector2>());
     }
@@ -181,11 +181,10 @@ public class NewPlayerscript : MonoBehaviour
         {
             return false;
         }
-        if ((direction0.y < 1 && direction0.y > 0) || (direction0.y > -1 && direction0.y < 0))
+        if ((direction0.y < 1 && direction0.y > 0) || (direction0.y > -1 && direction0.y < 0) || (direction0.x < 1 && direction0.x > 0) || (direction0.x > -1 && direction0.x < 0))
         {
             return false;
-        }
-        
+        }   
 
         return true;
     }
