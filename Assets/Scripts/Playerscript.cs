@@ -49,7 +49,7 @@ public class NewPlayerscript : MonoBehaviour
 
         if (signFront) Opensign();
 
-        if (boxFront) DestoryBox();
+        if (boxFront && !(box == null)) DestoryBox();
 
     }
 
@@ -96,8 +96,9 @@ public class NewPlayerscript : MonoBehaviour
 
     public void DestoryBox()
     {
-        collisionTileMap.SetTile(collisionTileMap.WorldToCell(GameObject.Find("Boxpoint").transform.position), null);
+        collisionTileMap.SetTile(collisionTileMap.WorldToCell(box.transform.position), null);
         Destroy(box);
+        box = null;
     }
 
 
