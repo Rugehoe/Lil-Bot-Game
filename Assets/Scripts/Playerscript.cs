@@ -173,6 +173,10 @@ public class NewPlayerscript : MonoBehaviour
     public bool CanMove(Vector2 direction0)
     {
         Vector3Int gridPosition = groundTileMap.WorldToCell(transform.position + (Vector3)direction0);
+        if ((direction0.y < 1 && direction0.y > 0) || (direction0.y > -1 && direction0.y < 0) || (direction0.x < 1 && direction0.x > 0) || (direction0.x > -1 && direction0.x < 0))
+        {
+            return false;
+        }
         if (WoodMap.HasTile(gridPosition) && !collisionTileMap.HasTile(gridPosition))
         {
             return true;
@@ -181,10 +185,7 @@ public class NewPlayerscript : MonoBehaviour
         {
             return false;
         }
-        if ((direction0.y < 1 && direction0.y > 0) || (direction0.y > -1 && direction0.y < 0) || (direction0.x < 1 && direction0.x > 0) || (direction0.x > -1 && direction0.x < 0))
-        {
-            return false;
-        }   
+        
 
         return true;
     }
